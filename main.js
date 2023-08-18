@@ -1,25 +1,3 @@
-/*
-window.addEventListener('load', render)
-
-const userUrl = 'https://varankin_dev.elma365.ru/api/extensions/2a38760e-083a-4dd0-aebc-78b570bfd3c7/script/users'
-const taskURL = 'https://varankin_dev.elma365.ru/api/extensions/2a38760e-083a-4dd0-aebc-78b570bfd3c7/script/tasks'
-
-const users = []
-const usersList = document.querySelector('.users_list')
-fetch(userUrl).then(response => response.json()).then(data => users.push(...data)).then(() => {
-    const userList = users.map(user => {
-        return `
-            <li>
-                <span> ${user.firstName}</span> <span> ${user.surname}</span>
-            </li>
-`
-    })
-    usersList.innerHTML = userList
-
-})
-//fetch(taskURL).then(response => response.json()).then(data => tasks.push(...data))
-*/
-
 
 window.addEventListener('load', renderApp());
 

@@ -1,4 +1,3 @@
-
 window.addEventListener('load', renderApp());
 
 function renderApp() {
@@ -34,23 +33,46 @@ function renderUsersList(userList) {
         console.log(userList);
         return userList.map(user => {
             return `
-                    <li> ${user.firstName} ${user.surname} </li>
+                <div class="user_row" data-id = ${user.id}>
+                <div class="user">${user.firstName} ${user.surname}</div>
+                <div class="user_date"></div>
+                <div class="user_date"></div>
+                <div class="user_date"></div>
+                <div class="user_date"></div>
+                <div class="user_date"></div>
+                <div class="user_date"></div>
+                <div class="user_date"></div>
+                </div>
                 `;
         }).join('')
     };
-    document.querySelector('.users_list').innerHTML = getHtml();
+    document.querySelector('.table').innerHTML = getHtml()
+    //document.querySelector('.users_list').innerHTML = getHtml();
 }
 
 function renderTasksList(taskList) {
     console.log(taskList)
+    // const getUserTask = () =>{
+    //     taskList.forEach((task, index)=>{
+    //         if(task.executor){
+    //             return()
+    //         }
+    //
+    //     })
+    // }
+     console.log(document.querySelector(`[data-id='1']`))
+
     const getHtml = () => {
         return taskList.map(task => {
             return `
-                    <li> ${task.subject} </li>
+                    <li>
+                        <span class="task__name"> ${task.subject} </span>
+                        <span class="task__date"> ${task.endDate}</span>
+                    </li>
                 `;
         }).join('')
     };
-    document.querySelector('.backlog').innerHTML = getHtml()
+    document.querySelector('.backlog__list').innerHTML = getHtml()
 }
 
 function togglePreloader() {

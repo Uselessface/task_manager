@@ -13,10 +13,12 @@ body{
     padding-left: 20px;
 }
 .table-container{
+    position: relative;
     max-width: 1240px;
     flex: 0 0 100%;
 }
 .date-line{
+    position: relative;
     display: flex;
     margin-left: 150px;
 }
@@ -40,6 +42,7 @@ body{
     align-items: center;
     background-color: lawngreen;
     text-align: center;
+    border: 1px solid black;
 }
 .user_date{
     flex: 1 1 20%;
@@ -60,13 +63,53 @@ body{
     display: flex;
     flex-direction: column;
     margin-bottom: 1px;
+    max-width: 150px;
 }
 .task__name{
     font-size: 1.2rem;
     font-weight: bold;
     color: #0f285d;
 }
-.task__date{
-    font-size: 0.7rem;
-    align-self: flex-end;
+
+.user_date{
+    display: flex;
+    flex-direction: column;
+}
+.task{
+    min-height: 50px;
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(213, 166, 166);
+    border-bottom: 1px solid #1d7eba;
+}
+
+.arrow{
+    position: absolute;
+    height: 41px;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid black;
+    z-index: 9999;
+}
+.arrow_left{
+    left: 150px;
+    top: 0;
+}
+.arrow_right{
+    right: 0;
+    top: 0;
+}
+.task{
+    width: 100%;
+    max-width: 200px;
+}
+.task:hover{
+    cursor: grab;
+}
+.selected {
+    opacity: 0.6;
 }

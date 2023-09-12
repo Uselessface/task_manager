@@ -1,28 +1,63 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     display: flex;
     width: 100%;
     column-gap: 2rem;
 }
-body{
+
+body {
     padding-top: 20px;
     padding-left: 20px;
 }
-.table-container{
+
+.table-container {
     position: relative;
     max-width: 1240px;
     flex: 0 0 100%;
 }
-.date-line{
+
+/*TABLE-STYLES*/
+
+.user {
+    padding: 0 20px;
+    flex: 0 0 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lawngreen;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.user_row {
+    display: flex;
+}
+
+.user_date {
+    flex: 1 1 20%;
+    border: 1px solid black;
+    min-height: 80px;
+}
+
+.user_date {
+    display: flex;
+    flex-direction: column;
+}
+
+/*DATE-ROW*/
+.date-line {
     position: relative;
     display: flex;
     margin-left: 150px;
 }
-.date{
+
+.date {
     flex: 1 1 20%;
     display: flex;
     justify-content: center;
@@ -30,52 +65,36 @@ body{
     padding-block: 10px;
     border: 1px solid black;
 }
-.user_row{
-    display: flex;
 
-}
-.user{
-    padding: 0 20px;
-    flex: 0 0 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lawngreen;
-    text-align: center;
+/*ARROWS*/
+.arrow {
+    position: absolute;
+    height: 41px;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
     border: 1px solid black;
-}
-.user_date{
-    flex: 1 1 20%;
-    border: 1px solid black;
-    min-height: 80px;
-}
-.backlog{
-    flex: 0 0 auto;
-    border: 1px solid red;
+    z-index: 9999;
 }
 
-.backlog__list{
-    list-style: none;
+.arrow_left {
+    left: 150px;
+    top: 0;
 }
-.backlog__list li{
-    padding: 5px 10px;
-    background-color: rgb(220, 168, 168);
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1px;
-    max-width: 150px;
+
+.arrow_right {
+    right: 0;
+    top: 0;
 }
-.task__name{
+
+/*TASK*/
+.task__name {
     font-size: 1.2rem;
     font-weight: bold;
     color: #0f285d;
 }
 
-.user_date{
-    display: flex;
-    flex-direction: column;
-}
-.task{
+.task {
     min-height: 50px;
     flex: 1 1 100%;
     display: flex;
@@ -86,30 +105,106 @@ body{
     border-bottom: 1px solid #1d7eba;
 }
 
-.arrow{
-    position: absolute;
-    height: 41px;
-    padding: 10px;
-    cursor: pointer;
-    outline: none;
-    border: 1px solid black;
-    z-index: 9999;
-}
-.arrow_left{
-    left: 150px;
-    top: 0;
-}
-.arrow_right{
-    right: 0;
-    top: 0;
-}
-.task{
+.task {
     width: 100%;
     max-width: 200px;
 }
-.task:hover{
+
+.task:hover {
     cursor: grab;
 }
+
 .selected {
     opacity: 0.6;
 }
+
+/*LOADER*/
+.load-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(200, 200, 255, 0.99);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*BACKLOG*/
+.backlog__list .task {
+    width: 100%;
+    max-width: 100%;
+}
+
+.backlog {
+    flex: 0 0 auto;
+    border: 1px solid red;
+}
+
+.backlog__list {
+    list-style: none;
+}
+
+.backlog__list li {
+    padding: 5px 10px;
+    background-color: rgb(220, 168, 168);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1px;
+    max-width: 150px;
+}
+
+/** BACKLOG SEARCH**/
+.backlog__label {
+    height: 45px;
+    outline: 1px solid black;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search__button {
+    border: none;
+    outline: none;
+    flex: 0 0 auto;
+    min-width: 45px;
+    cursor: pointer;
+    background: none;
+}
+
+.search__button:hover {
+    background: rgb(171, 220, 170);
+}
+
+.backlog__input {
+    border: none;
+    outline: none;
+    height: 100%;
+    flex: 1 1 auto;
+    max-width: 200px;
+    padding-left: 8px;
+    font-size: 1.3rem;
+}
+
+/*OTHER*/
+
